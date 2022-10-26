@@ -1,23 +1,23 @@
-import {onboarding_1, onboarding_2, onboarding_3} from './images';
+import images from './images';
 
 const introSlidesOnboarding = [
   {
     key: 1,
-    title: 'Xin chào',
-    description: 'Function to render a custom pagination/button component on top of slides. Receives the index of the currently active slide',
-    image: onboarding_1,
+    title: 'Chào mừng bạn đến với Book Introducation',
+    description: 'Nơi đây chúng tôi chuyên giới thiệu những loại sách',
+    image: images.onboarding_1,
   },
   {
     key: 2,
-    title: 'Xin chào',
+    title: 'Sự kết hợp hoàn hảo',
     description: 'Function to render a custom pagination/button component on top of slides. Receives the index of the currently active slide',
-    image: onboarding_2,
+    image: images.onboarding_2,
   },
   {
     key: 3,
-    title: 'Xin chào',
+    title: 'Bắt đầu sử dụng',
     description: 'Function to render a custom pagination/button component on top of slides. Receives the index of the currently active slide',
-    image: onboarding_3,
+    image: images.onboarding_3,
   },
 ];
 

@@ -9,6 +9,7 @@ interface CustomButtonProps {
   paddingVertical?: number;
   backgroundColor: string;
   borderRadius?: number;
+  disabled?: boolean;
   onPress?: () => void;
 }
 
@@ -20,6 +21,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   paddingVertical = 0,
   borderRadius = 0,
   onPress,
+  disabled = false,
 }) => {
   if (!onPress) {
     return (
@@ -44,6 +46,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   } else {
     return (
       <TouchableOpacity
+        disabled={disabled}
         style={{
           paddingHorizontal: paddingHorizontal,
           paddingVertical: paddingVertical,
@@ -52,7 +55,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
           backgroundColor: backgroundColor,
           borderRadius: borderRadius,
         }}
-        onPress={() => onPress}>
+        onPress={() => onPress()}>
         <Text
           style={{
             ...FONTS.h3,

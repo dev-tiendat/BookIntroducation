@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, StatusBar, SafeAreaView} from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {useDispatch} from 'react-redux';
 import { changeIsShowOnboardingScreen } from '../../redux/slices/showScreensSlice';
@@ -13,9 +13,17 @@ const OnboardingScreen: React.FC<OnBoardingScreenProps> = ({
   route,
 }) => {
   const dispatch = useDispatch();
+
+  const onDone = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'BottomTab'}],
+    });
+    dispatch(changeIsShowOnboardingScreen(false));
+  }
+  
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar hidden />
       <AppIntroSlider
         data={constants.introSlidesOnboarding}
         renderItem={({item}) => Slide(item)}
@@ -51,14 +59,7 @@ const OnboardingScreen: React.FC<OnBoardingScreenProps> = ({
           />
         )}
         activeDotStyle={styles.activeDotStyle}
-        onDone={() => {
-          navigation.reset({
-            index: 0,
-            routes: [{name: 'BottomTab'}],
-          });
-
-          dispatch(changeIsShowOnboardingScreen(false));
-        }}></AppIntroSlider>
+        onDone={onDone}></AppIntroSlider>
     </SafeAreaView>
   );
 };
